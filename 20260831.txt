@@ -1,0 +1,38 @@
+所有 Spring 产品的底层基石，核心模块：
+
+1. Spring Framework（Spring 核心框架）
+	1. Spring‑Core、Spring‑Beans：IOC 容器，依赖注入，Bean 管理
+	2. Spring‑Context：容器上下文，国际化、事件机制
+	3. Spring‑AOP：面向切面编程，日志、事务、权限
+	4. Spring‑JDBC / Spring‑TX：数据库操作、声明式事务
+	5. Spring‑Web：web 基础功能
+	6. Spring‑WebMVC：传统 SSM 的 MVC 框架，SpringMVC
+*SpringFramework 原生配置繁琐，需要大量 xml，所以诞生了 SpringBoot。
+
+2. Spring Boot
+	Spring Boot不是替换 Spring Framework，是封装、自动装配。
+	快速开发脚手架，简化 Spring 应用搭建，自动配置、内嵌 tomcat，一键启动 web 应用。
+	核心能力：自动配置、starter 起步依赖、内嵌 web 容器、actuator 监控。
+*SpringBoot 可以做单体应用；引入 SpringCloud 的 starter 之后，就变成微服务节点。
+
+3. Spring Cloud（微服务工具集）
+	SpringCloud 是一系列子模块的集合，提供微服务全套解决方案：服务注册发现、配置中心、网关、熔断降级、负载均衡、远程调用、分布	式事务等。
+*SpringCloud 有大版本命名，早期用伦敦地铁站名字（Hoxton、Greenwich），现在改成年份版本号，如`2021.0.x`。
+*版本必须和 SpringBoot 版本严格对应，版本不匹配直接各种报错。
+
+SpringCloud 没有独立服务，它只是 jar 包依赖。
+你的每一个微服务节点，本身就是一个独立 SpringBoot 项目。只需要在 pom.xml 引入 SpringCloud/SpringCloudAlibaba 的 starter 依赖，普通 SpringBoot 就拥有微服务能力。
+最后，这些 SpringBoot 微服务，各自打包，部署到服务器 / 容器，注册到注册中心 (Nacos)，共同组成 SpringCloud 微服务集群。
+
+4. Spring Cloud Alibaba（阿里实现的微服务实现，国内项目主流）
+	Spring Cloud 的实现实现方案，国内企业用的最多，用来替换上面废弃 Netflix 组件
+	
+5. 其他重要Spring生态项目
+1. Spring Security：权限安全框架，认证、登录、鉴权、OAuth2。
+2. Spring Session：会话共享，分布式 session。
+3. Spring Data：统一数据访问，包含 Spring‑Data‑JPA、Spring‑Data‑MongoDB、Spring‑Data‑Redis，简化数据库 CRUD。
+4. Spring Batch：批处理框架，大批量数据离线处理。
+5. Spring Integration：企业集成模式，消息、文件、TCP 协议对接。
+6. Spring Shell：命令行程序开发。
+7. Spring for GraphQL：GraphQL 接口开发。
+
